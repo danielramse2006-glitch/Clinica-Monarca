@@ -1,33 +1,44 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black border-t border-zinc-900 py-20 px-4">
+    <footer className="bg-black border-t border-zinc-900 py-24 px-4 relative z-10">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-16">
-          <div className="flex items-center space-x-6">
-            <img src="imagenes/logo.jpg" alt="Logo Monarca" className="h-16 w-16 rounded-full grayscale hover:grayscale-0 transition-all duration-500" />
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-20">
+          <div className="flex items-center space-x-8">
+            <motion.img 
+              whileHover={{ rotate: 5, scale: 1.1 }}
+              src="imagenes/logo.jpg" 
+              alt="Logo Monarca" 
+              className="h-24 w-auto rounded-xl grayscale hover:grayscale-0 transition-all duration-700 border border-zinc-800" 
+            />
             <div className="flex flex-col leading-none">
-              <span className="text-neon font-black text-3xl tracking-tighter italic">MONARCA</span>
-              <span className="text-zinc-600 text-[10px] tracking-[0.3em] font-bold uppercase">Tu Cuerpo. Tu Reino.</span>
+              <span className="text-neon font-black text-4xl tracking-tighter italic">MONARCA</span>
+              <span className="text-zinc-700 text-[12px] tracking-[0.4em] font-bold uppercase">Tu Cuerpo. Tu Reino.</span>
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-10 text-zinc-500">
-            <a href="https://wa.me/528991259003" className="hover:text-neon transition-colors text-xs font-black uppercase tracking-widest">WhatsApp</a>
-            <a href="#" className="hover:text-neon transition-colors text-xs font-black uppercase tracking-widest">Instagram</a>
-            <a href="#" className="hover:text-neon transition-colors text-xs font-black uppercase tracking-widest">Facebook</a>
-            <a href="#" className="hover:text-neon transition-colors text-xs font-black uppercase tracking-widest">TikTok</a>
+          <div className="flex flex-wrap justify-center items-center gap-12 text-zinc-600">
+            {['WhatsApp', 'Instagram', 'Facebook', 'TikTok'].map((social) => (
+               <a 
+                key={social} 
+                href="#" 
+                className="hover:text-neon transition-all text-xs font-black uppercase tracking-[0.3em] hover:tracking-[0.5em]"
+               >
+                 {social}
+               </a>
+            ))}
           </div>
         </div>
 
-        <div className="pt-10 border-t border-zinc-900/50 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
-          <p className="text-zinc-800 text-[10px] font-black tracking-widest uppercase">
-            © 2026 MONARCA FISIO & REHAB. TODOS LOS DERECHOS RESERVADOS.
+        <div className="pt-12 border-t border-zinc-900/50 flex flex-col md:flex-row justify-between items-center gap-6 text-center">
+          <p className="text-zinc-800 text-[11px] font-black tracking-widest uppercase">
+            © 2026 MONARCA FISIO & REHAB. REYNOSA, TAMAULIPAS.
           </p>
-          <p className="text-neon/20 text-[10px] font-black tracking-widest uppercase italic">
-            Diseñado para la Realeza del Fitness
+          <p className="text-neon/10 text-[11px] font-black tracking-widest uppercase italic">
+            ELITE PERFORMANCE REHABILITATION
           </p>
         </div>
       </div>

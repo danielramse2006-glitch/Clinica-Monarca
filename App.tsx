@@ -19,7 +19,6 @@ export type PageType = 'inicio' | 'fisioterapia' | 'rehabilitacion' | 'quiroprac
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<PageType>('inicio');
 
-  // Scroll to top on page change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
@@ -77,15 +76,39 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
+      {/* PERSISTENT BACKGROUND LOGO - Watermark that stays while scrolling */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ 
+          opacity: [0.03, 0.06, 0.03],
+          scale: [1, 1.05, 1]
+        }}
+        transition={{ 
+          duration: 15, 
+          repeat: Infinity,
+          ease: "easeInOut" 
+        }}
+        className="fixed inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+      >
+        <img 
+          src="imagenes/logo.jpg" 
+          alt="Monarca BG" 
+          className="w-[80%] h-auto object-contain grayscale opacity-40"
+          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+        />
+      </motion.div>
+
       <Navbar onNavigate={(p) => setCurrentPage(p as PageType)} currentPage={currentPage} />
       
-      <main className="pt-20">
+      <main className="pt-20 relative z-10">
         <AnimatePresence mode="wait">
           {renderContent()}
         </AnimatePresence>
       </main>
 
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 };
