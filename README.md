@@ -1,20 +1,20 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# 👑 Monarca Fisio & Rehab Web
 
-This contains everything you need to run your app locally.
+## 🚀 Cómo subirlo a GitHub sin que salga en negro:
 
-View your app in AI Studio: https://ai.studio/apps/temp/1
+Para que la página funcione en GitHub Pages, **debes usar un proceso de compilación**. 
 
-## Run Locally
+### Opción A: Vercel (RECOMENDADO - 1 Minuto)
+1. Sube tu carpeta a GitHub.
+2. Ve a [Vercel.com](https://vercel.com) e importa el repo.
+3. ¡Listo! Vercel detecta automáticamente que es **Vite** y lo pone online funcionando.
 
-**Prerequisites:**  Node.js
+### Opción B: GitHub Pages con Actions
+Si prefieres GitHub Pages, ve a **Settings > Pages** y en **Build and Deployment** selecciona **GitHub Actions**. Busca el template de **Vite** y confírmalo.
 
+**¿Por qué sale en negro a veces?**
+Porque los navegadores no leen archivos `.tsx` directamente. Necesitan que **Vite** (el motor de esta web) los convierta a JavaScript normal.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 📱 Contacto Directo:
+WhatsApp: 8991259003
