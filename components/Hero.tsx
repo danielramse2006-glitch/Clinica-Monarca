@@ -7,24 +7,24 @@ export const Hero: React.FC = () => {
 
   return (
     <div className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-transparent">
-      {/* ROTATING CROSSES - Left and Right */}
+      {/* CRUCES GIRATORIAS - Una a cada lado */}
       <motion.div 
         animate={{ rotate: 360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute -left-20 md:left-10 top-1/4 text-neon/10 font-black text-[15rem] md:text-[25rem] pointer-events-none select-none z-0"
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute -left-16 md:left-5 top-1/4 text-neon/10 font-black text-[18rem] md:text-[30rem] pointer-events-none select-none z-0"
       >
         +
       </motion.div>
       <motion.div 
         animate={{ rotate: -360 }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-        className="absolute -right-20 md:right-10 bottom-1/4 text-neon/10 font-black text-[15rem] md:text-[25rem] pointer-events-none select-none z-0"
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute -right-16 md:right-5 bottom-1/4 text-neon/10 font-black text-[18rem] md:text-[30rem] pointer-events-none select-none z-0"
       >
         +
       </motion.div>
 
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-        {/* Central Square Logo with Floating Animation */}
+        {/* Logo Central Cuadrado con animación de flotación y brillo */}
         <motion.div 
           initial={{ y: 50, opacity: 0, scale: 0.9 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -34,24 +34,27 @@ export const Hero: React.FC = () => {
           <motion.div
             animate={{ 
               y: [0, -20, 0],
-              filter: ["drop-shadow(0 0 10px rgba(223,255,0,0.1))", "drop-shadow(0 0 30px rgba(223,255,0,0.3))", "drop-shadow(0 0 10px rgba(223,255,0,0.1))"]
+              filter: [
+                "drop-shadow(0 0 10px rgba(223,255,0,0.1))", 
+                "drop-shadow(0 0 40px rgba(223,255,0,0.4))", 
+                "drop-shadow(0 0 10px rgba(223,255,0,0.1))"
+              ]
             }}
             transition={{ 
-              y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-              filter: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+              y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+              filter: { duration: 4, repeat: Infinity, ease: "easeInOut" }
             }}
-            className="p-1 bg-neon/10 rounded-3xl"
+            className="p-1 bg-neon/5 rounded-3xl"
           >
             <img 
               src="imagenes/logo.jpg" 
-              alt="Logo Central" 
-              className="w-48 md:w-80 h-auto rounded-2xl object-contain border-2 border-zinc-800/80" 
+              alt="Logo Monarca Cuadrado" 
+              className="w-52 md:w-80 h-auto rounded-2xl object-contain border-2 border-zinc-800/80 shadow-2xl" 
               onError={(e) => { (e.target as HTMLImageElement).src = 'https://picsum.photos/seed/monarca/600/600'; }}
             />
           </motion.div>
         </motion.div>
         
-        {/* Impactful Title */}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -65,16 +68,15 @@ export const Hero: React.FC = () => {
         >
           <motion.h1 
             variants={{
-              hidden: { y: 60, opacity: 0, skewY: 5 },
-              visible: { y: 0, opacity: 1, skewY: 0 }
+              hidden: { y: 60, opacity: 0 },
+              visible: { y: 0, opacity: 1 }
             }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-6xl md:text-[10rem] font-black italic mb-6 tracking-tighter leading-[0.82] uppercase"
           >
             TU CUERPO. <br/>
             <motion.span 
-              animate={{ opacity: [1, 0.8, 1] }}
-              transition={{ duration: 4, repeat: Infinity }}
+              animate={{ opacity: [1, 0.7, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
               className="text-neon drop-shadow-[0_0_40px_rgba(223,255,0,0.5)]"
             >
               TU REINO.
@@ -109,8 +111,8 @@ export const Hero: React.FC = () => {
               <span className="relative z-10">¡AGENDAR AHORA!</span>
               <motion.div 
                 animate={{ x: ["-100%", "200%"] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1 }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-1/2 skew-x-12"
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-1/3 skew-x-12"
               />
             </motion.a>
             
@@ -125,7 +127,7 @@ export const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Background radial glow */}
+      {/* Resplandor radial de fondo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(223,255,0,0.05)_0%,transparent_70%)] pointer-events-none"></div>
     </div>
   );

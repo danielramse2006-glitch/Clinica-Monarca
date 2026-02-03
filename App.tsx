@@ -76,27 +76,25 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
-      {/* PERSISTENT BACKGROUND LOGO - Watermark that stays while scrolling */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: [0.03, 0.06, 0.03],
-          scale: [1, 1.05, 1]
-        }}
-        transition={{ 
-          duration: 15, 
-          repeat: Infinity,
-          ease: "easeInOut" 
-        }}
-        className="fixed inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
-      >
-        <img 
+      {/* LOGO DE FONDO FIJO - No se pierde al bajar */}
+      <div className="fixed inset-0 z-0 flex items-center justify-center pointer-events-none select-none">
+        <motion.img 
+          initial={{ opacity: 0 }}
+          animate={{ 
+            opacity: [0.03, 0.06, 0.03],
+            scale: [1, 1.05, 1]
+          }}
+          transition={{ 
+            duration: 15, 
+            repeat: Infinity,
+            ease: "easeInOut" 
+          }}
           src="imagenes/logo.jpg" 
           alt="Monarca BG" 
-          className="w-[80%] h-auto object-contain grayscale opacity-40"
+          className="w-[85%] max-w-5xl h-auto object-contain grayscale"
           onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
-      </motion.div>
+      </div>
 
       <Navbar onNavigate={(p) => setCurrentPage(p as PageType)} currentPage={currentPage} />
       
